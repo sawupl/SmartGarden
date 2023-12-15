@@ -9,7 +9,7 @@ import com.example.smartgarden.databinding.PlantItemBinding
 import com.example.smartgarden.model.Plant
 import com.squareup.picasso.Picasso
 
-class PlantAdapter(private val plantsList: List<Plant>): RecyclerView.Adapter<PlantAdapter.ViewHolder>() {
+class PlantAdapter(private val plantsList: MutableList<Plant>): RecyclerView.Adapter<PlantAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: PlantItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -37,5 +37,19 @@ class PlantAdapter(private val plantsList: List<Plant>): RecyclerView.Adapter<Pl
 
     override fun getItemCount(): Int {
         return plantsList.size
+    }
+
+    fun add(plant: Plant) {
+        var isInList = false
+        for (i in plantsList) {
+            if (i.name == plant.name) {
+                isInList = true
+                break
+            }
+        }
+        if (!isInList) {
+            plantsList.add(plant)
+            notifyItemInserted(plantsList.size)
+        }
     }
 }
