@@ -32,5 +32,26 @@
         android:id="@+id/mainFragment"
         android:name="com.example.smartgarden.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_gardenFragment"
+            app:destination="@id/gardenFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_editGardenFragment"
+            app:destination="@id/editGardenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gardenFragment"
+        android:name="com.example.smartgarden.GardenFragment"
+        android:label="fragment_garden"
+        tools:layout="@layout/fragment_garden" >
+        <argument
+            android:name="gardenId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/editGardenFragment"
+        android:name="com.example.smartgarden.EditGardenFragment"
+        android:label="fragment_edit_garden"
+        tools:layout="@layout/fragment_edit_garden" />
 </navigation>
