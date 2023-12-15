@@ -10,8 +10,6 @@
         android:id="@+id/gardensRecycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
         app:layout_constraintBottom_toTopOf="@id/createGarden"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,5 +24,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         />
+
+    <Button
+        android:id="@+id/toPlantList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="В список растений"
+        app:layout_constraintBottom_toBottomOf="@+id/gardensRecycler"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

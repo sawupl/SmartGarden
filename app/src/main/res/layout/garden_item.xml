@@ -9,11 +9,10 @@
         android:id="@+id/gardenName"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Name"
-        android:textSize="36sp"
         android:gravity="center_vertical|center_horizontal"
-        android:layout_marginStart="10dp"
+        android:text="Name"
         android:textColor="@color/oran"
+        android:textSize="36sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

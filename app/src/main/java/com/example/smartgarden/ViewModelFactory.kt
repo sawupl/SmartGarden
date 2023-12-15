@@ -38,6 +38,26 @@ class ViewModelFactory :
                 getViewModel(key) as T
             }
         }
+        else if (modelClass.isAssignableFrom(EditGardenViewModel::class.java)) {
+            val key = EditGardenViewModel::class.java.name
+            return if (viewModelHashMap.containsKey(key)) {
+                getViewModel(key) as T
+            } else {
+                val viewModel: ViewModel = EditGardenViewModel(db, auth)
+                addViewModel(key, viewModel)
+                getViewModel(key) as T
+            }
+        }
+        else if (modelClass.isAssignableFrom(PlantViewModel::class.java)) {
+            val key = PlantViewModel::class.java.name
+            return if (viewModelHashMap.containsKey(key)) {
+                getViewModel(key) as T
+            } else {
+                val viewModel: ViewModel = PlantViewModel(db, auth)
+                addViewModel(key, viewModel)
+                getViewModel(key) as T
+            }
+        }
         else{
             throw ClassNotFoundException("нет такой ViewModel")
         }

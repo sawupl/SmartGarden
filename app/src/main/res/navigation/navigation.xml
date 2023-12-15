@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_mainFragment_to_editGardenFragment"
             app:destination="@id/editGardenFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_plantFragment"
+            app:destination="@id/plantFragment" />
     </fragment>
     <fragment
         android:id="@+id/gardenFragment"
@@ -54,4 +57,9 @@
         android:name="com.example.smartgarden.EditGardenFragment"
         android:label="fragment_edit_garden"
         tools:layout="@layout/fragment_edit_garden" />
+    <fragment
+        android:id="@+id/plantFragment"
+        android:name="com.example.smartgarden.PlantFragment"
+        android:label="fragment_plant"
+        tools:layout="@layout/fragment_plant" />
 </navigation>

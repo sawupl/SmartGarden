@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smartgarden.databinding.PlantItemBinding
 import com.example.smartgarden.model.Plant
+import com.squareup.picasso.Picasso
 
 class PlantAdapter(private val plantsList: List<Plant>): RecyclerView.Adapter<PlantAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: PlantItemBinding) : RecyclerView.ViewHolder(binding.root)
@@ -16,8 +17,14 @@ class PlantAdapter(private val plantsList: List<Plant>): RecyclerView.Adapter<Pl
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val name = plantsList[position].name
+        val soilType = plantsList[position].soilType
+        val watering = plantsList[position].watering
+        val picture = plantsList[position].picture
         holder.binding.apply {
-//            plantName.text = name
+            plantName.text = name
+            plantSoilType.text = soilType
+            wateringNumber.text = watering.toString()
+            Picasso.get().load(picture).into(plantImage)
         }
 
     }
