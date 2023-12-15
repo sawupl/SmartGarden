@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "138298941892",
+    "project_id": "xakaton2-2",
+    "storage_bucket": "xakaton2-2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138298941892:android:e3d1316f34c055f1da8491",
+        "android_client_info": {
+          "package_name": "com.example.smartgarden"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdutzSMreKSx8f3ETR07ROThwE0sYEiys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
