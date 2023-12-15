@@ -51,12 +51,19 @@
         <argument
             android:name="gardenId"
             app:argType="string" />
+        <action
+            android:id="@+id/action_gardenFragment_to_plantInfoFragment"
+            app:destination="@id/plantInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/editGardenFragment"
         android:name="com.example.smartgarden.EditGardenFragment"
         android:label="fragment_edit_garden"
-        tools:layout="@layout/fragment_edit_garden" />
+        tools:layout="@layout/fragment_edit_garden" >
+        <action
+            android:id="@+id/action_editGardenFragment_to_plantInfoFragment"
+            app:destination="@id/plantInfoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/plantFragment"
         android:name="com.example.smartgarden.PlantFragment"

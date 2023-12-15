@@ -31,7 +31,7 @@ class PlantAdapter(private val plantsList: MutableList<Plant>): RecyclerView.Ada
         holder.itemView.setOnClickListener {
             val bundle = Bundle()
             bundle.putString("plantId", plantsList[position].id)
-            findNavController(it).navigate(R.id.action_plantFragment_to_plantInfoFragment, bundle)
+            findNavController(it).navigate(R.id.plantInfoFragment , bundle)
         }
     }
 
