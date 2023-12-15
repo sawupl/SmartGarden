@@ -61,5 +61,14 @@
         android:id="@+id/plantFragment"
         android:name="com.example.smartgarden.PlantFragment"
         android:label="fragment_plant"
-        tools:layout="@layout/fragment_plant" />
+        tools:layout="@layout/fragment_plant" >
+        <action
+            android:id="@+id/action_plantFragment_to_plantInfoFragment"
+            app:destination="@id/plantInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/plantInfoFragment"
+        android:name="com.example.smartgarden.PlantInfoFragment"
+        android:label="fragment_plant_info"
+        tools:layout="@layout/fragment_plant_info" />
 </navigation>

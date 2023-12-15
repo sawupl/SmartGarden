@@ -4,5 +4,6 @@ data class Plant(
     val name: String,
     val watering: Long,
     val soilType: String,
-    val picture: String
+    val picture: String,
+    val id: String
 )

@@ -58,6 +58,16 @@ class ViewModelFactory :
                 getViewModel(key) as T
             }
         }
+        else if (modelClass.isAssignableFrom(PlantInfoViewModel::class.java)) {
+            val key = PlantInfoViewModel::class.java.name
+            return if (viewModelHashMap.containsKey(key)) {
+                getViewModel(key) as T
+            } else {
+                val viewModel: ViewModel = PlantInfoViewModel(db, auth)
+                addViewModel(key, viewModel)
+                getViewModel(key) as T
+            }
+        }
         else{
             throw ClassNotFoundException("нет такой ViewModel")
         }

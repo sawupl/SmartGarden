@@ -26,10 +26,11 @@ class PlantViewModel(private val db: FirebaseFirestore, private val auth: Fireba
             streets.documents.forEach {
                 println(it.data?.get("name").toString())
                 val name = it.data?.get("name").toString()
+                val id = it.id
                 val soilType = it.data?.get("soilType").toString()
                 val watering = it.data?.get("watering").toString().toLong()
                 val picture = it.data?.get("picture").toString()
-                streetsList.add(Plant(name,watering,soilType,picture))
+                streetsList.add(Plant(name,watering,soilType,picture,id))
             }
             plantLiveData.postValue(streetsList)
         }

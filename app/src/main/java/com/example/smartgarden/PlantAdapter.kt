@@ -1,7 +1,9 @@
 package com.example.smartgarden
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smartgarden.databinding.PlantItemBinding
 import com.example.smartgarden.model.Plant
@@ -26,7 +28,11 @@ class PlantAdapter(private val plantsList: List<Plant>): RecyclerView.Adapter<Pl
             wateringNumber.text = watering.toString()
             Picasso.get().load(picture).into(plantImage)
         }
-
+        holder.itemView.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("plantId", plantsList[position].id)
+            findNavController(it).navigate(R.id.action_plantFragment_to_plantInfoFragment, bundle)
+        }
     }
 
     override fun getItemCount(): Int {
