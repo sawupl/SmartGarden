@@ -47,8 +47,12 @@ class EditGardenFragment : Fragment() {
         }
 
         viewModel.gardenLivaData.observe(viewLifecycleOwner){
-            binding.city.setText(it.city)
-            binding.gardenName.setText(it.name)
+            if (it.city != "null"){
+                binding.city.setText(it.city)
+            }
+            if (it.name != "null"){
+                binding.gardenName.setText(it.name)
+            }
         }
 
 
