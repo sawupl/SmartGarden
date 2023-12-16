@@ -32,7 +32,7 @@ class GardenFragment : Fragment(),SensorEventListener{
         viewModel.getGarden(gardenId.toString())
 
 
-        sensorManager= (requireContext().getSystemService(Context.SENSOR_SERVICE) as SensorManager);
+        sensorManager= requireContext().getSystemService(Context.SENSOR_SERVICE) as SensorManager
         sensorLight = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
         sensorHumidity = sensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY)
         sensorTemperature = sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE)
@@ -52,9 +52,6 @@ class GardenFragment : Fragment(),SensorEventListener{
         }
 
 
-        val deviceSensors: List<Sensor> = sensorManager.getSensorList(Sensor.TYPE_ALL)
-        println(deviceSensors.joinToString("\n"))
-
         return binding.root
     }
 
@@ -73,9 +70,6 @@ class GardenFragment : Fragment(),SensorEventListener{
         if(event!!.sensor.name.contains("Temperature", ignoreCase = true)){
             binding.currentTempreture.text = event.values[0].toString()
         }
-        else{
-            binding.currentTempreture.visibility = View.INVISIBLE
-        }
         if (event.sensor.name.contains("Light",ignoreCase = true)){
             when(event.values[0].toLong()){
                 in 0..99 -> binding.currentLight.text = "Слишком темно"
@@ -87,9 +81,6 @@ class GardenFragment : Fragment(),SensorEventListener{
         }
         if (event.sensor.name.contains("Humidity",ignoreCase = true)){
             binding.currentHumidity.text = event.values[0].toString()
-        }
-        else{
-            binding.currentHumidity.visibility = View.INVISIBLE
         }
     }
 
