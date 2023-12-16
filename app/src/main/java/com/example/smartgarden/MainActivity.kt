@@ -1,11 +1,17 @@
 package com.example.smartgarden
 
+import android.Manifest
+import android.app.Activity
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.example.smartgarden.notification.NotificationService
 import java.util.Calendar
 
@@ -14,7 +20,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            requestPermission(this@MainActivity, Manifest.permission.POST_NOTIFICATIONS,
+                POST_NOTIFICATIONS_PERMISSION_CODE)
+        }
+        else {
+            scheduleNotification(this)
+        }
+    }
 
+    override fun onResume() {
+        super.onResume()
         scheduleNotification(this)
     }
 
@@ -39,4 +55,19 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
+    private fun requestPermission(context: Context, permission: String, requestCode: Int) {
+        if (ContextCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                    (context as Activity),
+                    arrayOf(permission),
+                    requestCode)
+            }
+        else {
+            scheduleNotification(this)
+        }
+
+    }
+    companion object {
+        const val POST_NOTIFICATIONS_PERMISSION_CODE = 0
+    }
 }

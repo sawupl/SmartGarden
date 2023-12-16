@@ -17,6 +17,7 @@ class NotificationService : BroadcastReceiver() {
 
     companion object {
         private const val CHANNEL_ID = "NotificationServiceChannel"
+        private const val CHANNEL_NAME = "ChannelName"
         private const val NOTIFICATION_ID = 1
     }
 
@@ -46,12 +47,12 @@ class NotificationService : BroadcastReceiver() {
         )
 
         return NotificationCompat.Builder(context, CHANNEL_ID)
-            .setContentTitle("Daily Notification")
-            .setContentText("It's 8:00 AM!")
+            .setContentTitle("Поливка растений")
+            .setContentText("Пришло время полить растения!")
             .setSmallIcon(R.mipmap.ic_launcher)
             .setColor(ContextCompat.getColor(context, R.color.blue))
             .setContentIntent(pendingIntent)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
             .build()
     }
 
@@ -59,8 +60,8 @@ class NotificationService : BroadcastReceiver() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val serviceChannel = NotificationChannel(
                 CHANNEL_ID,
-                "Notification Service Channel",
-                NotificationManager.IMPORTANCE_DEFAULT
+                CHANNEL_NAME,
+                NotificationManager.IMPORTANCE_HIGH
             )
 
             val manager = context.getSystemService(NotificationManager::class.java)
