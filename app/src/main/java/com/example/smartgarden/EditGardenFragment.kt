@@ -17,7 +17,8 @@ class EditGardenFragment : Fragment() {
     private lateinit var viewModel: EditGardenViewModel
     private var plants = mutableListOf<String>()
     private lateinit var adapter: PlantAdapter
-    private val plantsList = mutableListOf<Plant>()
+    private var plantsList = mutableListOf<Plant>()
+    private var gardenId: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,9 +32,10 @@ class EditGardenFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentEditGardenBinding.inflate(inflater, container, false)
+        gardenId = arguments?.getString("gardenId")
 
-        binding.plantsList.adapter = adapter
-        binding.plantsList.layoutManager = LinearLayoutManager(context)
+        viewModel.getGarden(gardenId.toString())
+
 
         viewModel.plantsStringLiveData.observe(viewLifecycleOwner){
             val adapter = ArrayAdapter(
@@ -42,6 +44,19 @@ class EditGardenFragment : Fragment() {
             )
             plants = it.toMutableList()
             binding.plant.setAdapter(adapter)
+        }
+
+        viewModel.gardenLivaData.observe(viewLifecycleOwner){
+            binding.city.setText(it.city)
+            binding.gardenName.setText(it.name)
+        }
+
+
+        viewModel.plantListLivaData.observe(viewLifecycleOwner){
+            val adapter = PlantAdapter(it,viewModel)
+            plantsList = it
+            binding.plantsList.adapter = adapter
+            binding.plantsList.layoutManager = LinearLayoutManager(context)
         }
 
         binding.addPlant.setOnClickListener {
@@ -64,7 +79,7 @@ class EditGardenFragment : Fragment() {
             val city = binding.city.text.toString()
             val name = binding.gardenName.text.toString()
             if (city.isNotEmpty() && name.isNotEmpty() && plantsList.isNotEmpty()) {
-                viewModel.saveGarden(city, name, plantsList)
+                viewModel.saveGarden(city, name, plantsList,gardenId)
                 findNavController().popBackStack()
             }
             else {

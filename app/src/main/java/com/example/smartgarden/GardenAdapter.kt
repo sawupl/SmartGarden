@@ -29,6 +29,11 @@ class GardenAdapter(private val gardenList: List<Garden>): RecyclerView.Adapter<
             findNavController(it).navigate(R.id.action_mainFragment_to_gardenFragment, bundle)
         }
 
+        holder.binding.changeGarden.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("gardenId", gardenList[position].id)
+            findNavController(it).navigate(R.id.action_mainFragment_to_editGardenFragment, bundle)
+        }
     }
 
     override fun getItemCount(): Int {

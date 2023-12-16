@@ -23,7 +23,8 @@ class MainViewModel(private val db: FirebaseFirestore, private val auth: Firebas
             gardens.documents.forEach {
                 val name = it.data?.get("name").toString()
                 val id = it.id
-                gardenList.add(Garden(name = name,id = id))
+                val city = it.data?.get("city").toString()
+                gardenList.add(Garden(name = name,id = id,city=city))
             }
             gardenLiveData.postValue(gardenList)
         }
