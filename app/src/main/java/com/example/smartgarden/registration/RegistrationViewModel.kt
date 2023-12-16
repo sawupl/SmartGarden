@@ -9,7 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 
-class RegistrationViewModel(private val auth: FirebaseAuth, private val db: FirebaseFirestore): ViewModel() {
+class RegistrationViewModel(private val db: FirebaseFirestore, private val auth: FirebaseAuth): ViewModel() {
     val isLoginLiveData = MutableLiveData<Boolean>()
 
 

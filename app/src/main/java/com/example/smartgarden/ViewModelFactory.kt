@@ -33,7 +33,7 @@ class ViewModelFactory :
             return if (viewModelHashMap.containsKey(key)) {
                 getViewModel(key) as T
             } else {
-                val viewModel: ViewModel = RegistrationViewModel(auth, db)
+                val viewModel: ViewModel = RegistrationViewModel(db, auth)
                 addViewModel(key, viewModel)
                 getViewModel(key) as T
             }
@@ -74,6 +74,16 @@ class ViewModelFactory :
                 getViewModel(key) as T
             } else {
                 val viewModel: ViewModel = MainViewModel(db, auth)
+                addViewModel(key, viewModel)
+                getViewModel(key) as T
+            }
+        }
+        else if (modelClass.isAssignableFrom(GardenViewModel::class.java)) {
+            val key = GardenViewModel::class.java.name
+            return if (viewModelHashMap.containsKey(key)) {
+                getViewModel(key) as T
+            } else {
+                val viewModel: ViewModel = GardenViewModel(db, auth)
                 addViewModel(key, viewModel)
                 getViewModel(key) as T
             }

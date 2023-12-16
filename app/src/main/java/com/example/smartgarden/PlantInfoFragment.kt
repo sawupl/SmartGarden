@@ -14,8 +14,8 @@ import com.squareup.picasso.Picasso
 
 class PlantInfoFragment : Fragment() {
     private lateinit var binding: FragmentPlantInfoBinding
-    private var plantId: String? = null
     private lateinit var viewModel: PlantInfoViewModel
+    private var plantId: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
