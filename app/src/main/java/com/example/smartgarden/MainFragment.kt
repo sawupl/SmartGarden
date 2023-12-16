@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smartgarden.databinding.FragmentMainBinding
@@ -12,27 +13,20 @@ import com.example.smartgarden.model.Garden
 
 class MainFragment : Fragment() {
     private lateinit var binding: FragmentMainBinding
-
+    private lateinit var viewModel: MainViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentMainBinding.inflate(layoutInflater, container, false)
+        viewModel = ViewModelProvider(this, ViewModelFactory())[MainViewModel::class.java]
 
-        val gardens = listOf<Garden>(
-            Garden(id = "garden1", name = "Самара"),
-            Garden(id = "garden2", name = "а"),
-            Garden(id = "garden3", name = "п"),
-            Garden(id = "garden4", name = "р"),
-            Garden(id = "garden5", name = "с"),
-            Garden(id = "garden6", name = "т"),
-            Garden(id = "garden7", name = "ь"),
-            Garden(id = "garden8", name = "б")
-        )
+        viewModel.gardenLiveData.observe(viewLifecycleOwner){
+            val adapter = GardenAdapter(it)
+            binding.gardensRecycler.adapter = adapter
+            binding.gardensRecycler.layoutManager = LinearLayoutManager(context)
+        }
 
-        val adapter = GardenAdapter(gardens)
-        binding.gardensRecycler.adapter = adapter
-        binding.gardensRecycler.layoutManager = LinearLayoutManager(context)
 
         binding.createGarden.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_editGardenFragment)
