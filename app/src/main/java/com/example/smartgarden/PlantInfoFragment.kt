@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.smartgarden.databinding.FragmentMainBinding
 import com.example.smartgarden.databinding.FragmentPlantInfoBinding
 import com.example.smartgarden.model.PlantInfo
@@ -48,6 +49,10 @@ class PlantInfoFragment : Fragment() {
             binding.plantInfoSunExposureInfo.text = it.sunExposureInfo
             binding.plantInfoWaterInfo.text = it.waterInfo
             binding.plantInfoSoilInfo.text = it.soilInfo
+        }
+
+        binding.backToPlants.setOnClickListener {
+            findNavController().popBackStack()
         }
 
         return binding.root

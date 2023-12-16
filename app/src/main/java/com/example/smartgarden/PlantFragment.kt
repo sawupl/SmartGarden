@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smartgarden.databinding.FragmentPlantBinding
 
@@ -27,6 +28,10 @@ class PlantFragment : Fragment() {
             val adapter = PlantAdapter(it)
             binding.plantsRecyclerView.adapter = adapter
             binding.plantsRecyclerView.layoutManager = LinearLayoutManager(context)
+        }
+
+        binding.backToMain.setOnClickListener {
+            findNavController().popBackStack()
         }
 
         return binding.root

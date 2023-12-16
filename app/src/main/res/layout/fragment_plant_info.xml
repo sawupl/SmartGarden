@@ -20,10 +20,22 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/backToPlants"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="@color/oran"
+                android:src="@drawable/back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
                 android:id="@+id/plantInfoImage"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/backToPlants"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@tools:sample/avatars" />
 

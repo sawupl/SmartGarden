@@ -55,6 +55,10 @@ class EditGardenFragment : Fragment() {
             }
         }
 
+        binding.backToMenu.setOnClickListener {
+            findNavController().popBackStack()
+        }
+
         binding.addGarden.setOnClickListener {
             val city = binding.city.text.toString()
             val name = binding.gardenName.text.toString()
