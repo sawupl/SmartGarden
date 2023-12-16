@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,7 +21,9 @@ class GardenFragment : Fragment(),SensorEventListener{
     private var gardenId: String? = null
 
     private lateinit var sensorManager: SensorManager
-    private var sensor:Sensor?=null
+    private var sensorLight:Sensor?=null
+    private var sensorHumidity:Sensor?=null
+    private var sensorTemperature:Sensor?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +33,9 @@ class GardenFragment : Fragment(),SensorEventListener{
 
 
         sensorManager= (requireContext().getSystemService(Context.SENSOR_SERVICE) as SensorManager);
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
+        sensorLight = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
+        sensorHumidity = sensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY)
+        sensorTemperature = sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE)
     }
 
 
@@ -46,12 +51,18 @@ class GardenFragment : Fragment(),SensorEventListener{
                 binding.plantsRecyclerView.layoutManager = LinearLayoutManager(context)
         }
 
+
+        val deviceSensors: List<Sensor> = sensorManager.getSensorList(Sensor.TYPE_ALL)
+        println(deviceSensors.joinToString("\n"))
+
         return binding.root
     }
 
     override fun onResume() {
         super.onResume()
-        sensorManager.registerListener(this,sensor,SensorManager.SENSOR_DELAY_NORMAL)
+        sensorManager.registerListener(this,sensorLight,SensorManager.SENSOR_DELAY_NORMAL)
+        sensorManager.registerListener(this,sensorHumidity,SensorManager.SENSOR_DELAY_NORMAL)
+        sensorManager.registerListener(this,sensorTemperature,SensorManager.SENSOR_DELAY_NORMAL)
     }
 
     override fun onPause() {
@@ -59,14 +70,27 @@ class GardenFragment : Fragment(),SensorEventListener{
         sensorManager.unregisterListener(this)
     }
     override fun onSensorChanged(event: SensorEvent?) {
-        when(event!!.values[0].toLong()){
-            in 0..99 -> binding.currentLight.text = "Слишком темно"
-            in 100..499 -> binding.currentLight.text = "Слабый свет"
-            in 500..1999 -> binding.currentLight.text = "Средний свет"
-            in 2000..4999 -> binding.currentLight.text = "Сильный свет"
-            in 5000..10000 -> binding.currentLight.text = "Прямой свет"
+        if(event!!.sensor.name.contains("Temperature", ignoreCase = true)){
+            binding.currentTempreture.text = event.values[0].toString()
         }
-
+        else{
+            binding.currentTempreture.visibility = View.INVISIBLE
+        }
+        if (event.sensor.name.contains("Light",ignoreCase = true)){
+            when(event.values[0].toLong()){
+                in 0..99 -> binding.currentLight.text = "Слишком темно"
+                in 100..499 -> binding.currentLight.text = "Слабый свет"
+                in 500..1999 -> binding.currentLight.text = "Средний свет"
+                in 2000..4999 -> binding.currentLight.text = "Сильный свет"
+                in 5000..10000 -> binding.currentLight.text = "Прямой свет"
+            }
+        }
+        if (event.sensor.name.contains("Humidity",ignoreCase = true)){
+            binding.currentHumidity.text = event.values[0].toString()
+        }
+        else{
+            binding.currentHumidity.visibility = View.INVISIBLE
+        }
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
