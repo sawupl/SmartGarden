@@ -16,11 +16,7 @@ class MainViewModel(private val db: FirebaseFirestore, private val auth: Firebas
     val id = auth.currentUser?.uid.toString()
     val gardenLiveData = MutableLiveData<MutableList<Garden>>()
 
-    init {
-        getGarden()
-    }
-
-    private fun getGarden(){
+    fun getGarden(){
         val gardenList = mutableListOf<Garden>()
         viewModelScope.launch(Dispatchers.IO) {
             val gardens = db.collection("users").document(id).collection("garden").get().await()
