@@ -40,7 +40,6 @@ class MainActivity : AppCompatActivity() {
         notificationManager.createNotificationChannel(channel)
     }
 
-    @SuppressLint("ScheduleExactAlarm")
     private fun scheduleNotification() {
         val intent = Intent(applicationContext, Notification::class.java)
         val title = "TITLE"
