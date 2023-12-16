@@ -99,25 +99,27 @@ class EditGardenViewModel(private val db: FirebaseFirestore, private val auth: F
                     .document(id)
                     .collection("garden")
                     .document(gardenId).set(garden)
-                viewModelScope.launch(Dispatchers.IO) {
                     db.collection("users")
                         .document(id)
                         .collection("garden")
                         .document(gardenId)
-                        .collection("plants").get().await().forEach {
-                            println(it.reference.id)
-                            it.reference.delete().await()
+                        .collection("plants").get().addOnSuccessListener{
+                            it.forEach { plant ->
+                                plant.reference.delete()
+                            }
+                        }.addOnCompleteListener {
+                            for (i in plants) {
+                                db.collection("users")
+                                    .document(id)
+                                    .collection("garden")
+                                    .document(gardenId)
+                                    .collection("plants")
+                                    .document(i.id)
+                                    .set(mapOf("added" to true))
+                            }
                         }
-                    for (i in plants) {
-                        db.collection("users")
-                            .document(id)
-                            .collection("garden")
-                            .document(gardenId)
-                            .collection("plants")
-                            .document(i.id)
-                            .set(mapOf("added" to true)).await()
-                    }
-                }
+
+
             }
             else{
                 val garden = hashMapOf(
