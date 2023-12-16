@@ -25,7 +25,7 @@ class PlantFragment : Fragment() {
         binding = FragmentPlantBinding.inflate(inflater,container,false)
 
         viewModel.plantLiveData.observe(viewLifecycleOwner){
-            val adapter = PlantAdapter(it)
+            val adapter = PlantAdapter(it,viewModel)
             binding.plantsRecyclerView.adapter = adapter
             binding.plantsRecyclerView.layoutManager = LinearLayoutManager(context)
         }

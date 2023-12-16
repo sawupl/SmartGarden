@@ -16,12 +16,13 @@ class EditGardenFragment : Fragment() {
     private lateinit var binding: FragmentEditGardenBinding
     private lateinit var viewModel: EditGardenViewModel
     private var plants = mutableListOf<String>()
-    private val adapter = PlantAdapter(mutableListOf())
+    private lateinit var adapter: PlantAdapter
     private val plantsList = mutableListOf<Plant>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this, ViewModelFactory())[EditGardenViewModel::class.java]
+        adapter = PlantAdapter(mutableListOf(),viewModel)
     }
 
     override fun onCreateView(

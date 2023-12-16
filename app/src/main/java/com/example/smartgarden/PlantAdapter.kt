@@ -1,19 +1,26 @@
 package com.example.smartgarden
 
+import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModel
 import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smartgarden.databinding.PlantItemBinding
 import com.example.smartgarden.model.Plant
 import com.squareup.picasso.Picasso
 
-class PlantAdapter(private val plantsList: MutableList<Plant>): RecyclerView.Adapter<PlantAdapter.ViewHolder>() {
+class PlantAdapter(private val plantsList: MutableList<Plant>, private val viewModel: ViewModel): RecyclerView.Adapter<PlantAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: PlantItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = PlantItemBinding.inflate(LayoutInflater.from(parent.context), parent,  false)
+        if (viewModel is PlantViewModel){
+            binding.removePlant.visibility = View.INVISIBLE
+        }
+
         return ViewHolder(binding = binding)
     }
 
@@ -33,6 +40,9 @@ class PlantAdapter(private val plantsList: MutableList<Plant>): RecyclerView.Ada
             bundle.putString("plantId", plantsList[position].id)
             findNavController(it).navigate(R.id.plantInfoFragment , bundle)
         }
+        holder.binding.removePlant.setOnClickListener {
+            removeItem(position)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -51,5 +61,11 @@ class PlantAdapter(private val plantsList: MutableList<Plant>): RecyclerView.Ada
             plantsList.add(plant)
             notifyItemInserted(plantsList.size)
         }
+    }
+
+    private fun removeItem(position: Int) {
+        plantsList.removeAt(position)
+        notifyItemRemoved(position)
+        notifyItemRangeChanged(position, plantsList.size)
     }
 }
