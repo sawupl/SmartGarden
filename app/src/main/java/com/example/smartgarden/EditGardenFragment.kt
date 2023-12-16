@@ -32,10 +32,14 @@ class EditGardenFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentEditGardenBinding.inflate(inflater, container, false)
+
+        binding.plantsList.adapter = adapter
+        binding.plantsList.layoutManager = LinearLayoutManager(context)
+
         gardenId = arguments?.getString("gardenId")
-
-        viewModel.getGarden(gardenId.toString())
-
+        if (gardenId != null) {
+            viewModel.getGarden(gardenId.toString())
+        }
 
         viewModel.plantsStringLiveData.observe(viewLifecycleOwner){
             val adapter = ArrayAdapter(
@@ -47,30 +51,28 @@ class EditGardenFragment : Fragment() {
         }
 
         viewModel.gardenLivaData.observe(viewLifecycleOwner){
-            if (it.city != "null"){
+            it?.let {
                 binding.city.setText(it.city)
-            }
-            if (it.name != "null"){
                 binding.gardenName.setText(it.name)
             }
         }
 
 
         viewModel.plantListLivaData.observe(viewLifecycleOwner){
-            val adapter = PlantAdapter(it,viewModel)
-            plantsList = it
-            binding.plantsList.adapter = adapter
-            binding.plantsList.layoutManager = LinearLayoutManager(context)
+            it?.let {
+                plantsList = it
+                adapter.setList(plantsList)
+            }
         }
 
         binding.addPlant.setOnClickListener {
             val name = binding.plant.text.toString()
             if (name.isNotEmpty()) {
-                val plant = viewModel.addPlant(name)
-                if (plant != null) {
-                    adapter.add(plant)
-                    plantsList.add(plant)
-                }
+                viewModel.addPlant(name)
+//                if (plant != null) {
+//                    adapter.add(plant)
+//                    plantsList.add(plant)
+//                }
                 binding.plant.setText("")
             }
         }

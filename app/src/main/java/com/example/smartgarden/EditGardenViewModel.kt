@@ -17,7 +17,7 @@ class EditGardenViewModel(private val db: FirebaseFirestore, private val auth: F
     val id = auth.currentUser?.uid.toString()
     val plantsStringLiveData = MutableLiveData<List<String>>()
     private val plantList = mutableListOf<Plant>()
-    val plantListLivaData = MutableLiveData<MutableList<Plant>>()
+    val plantListLivaData = MutableLiveData<MutableList<Plant>>(mutableListOf())
     val gardenLivaData = MutableLiveData<Garden>()
 
     init {
@@ -79,12 +79,28 @@ class EditGardenViewModel(private val db: FirebaseFirestore, private val auth: F
 
         fun addPlant(name: String): Plant? {
             var plant: Plant? = null
+            var isInList = false
             for (i in plantList) {
                 if (i.name == name) {
                     plant = i
                     break
                 }
             }
+            if (plant != null) {
+                for (i in plantListLivaData.value!!) {
+                    if (i.name == plant.name) {
+                        print(i.name + " " + plant.name)
+                        println(i.name.equals(plant.name))
+                        isInList = true
+                        break
+                    }
+                }
+                if (!isInList) {
+                    plantListLivaData.value?.add(plant)
+                }
+            }
+            println(isInList)
+
             return plant
         }
 

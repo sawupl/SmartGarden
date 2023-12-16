@@ -12,12 +12,12 @@ import com.example.smartgarden.databinding.PlantItemBinding
 import com.example.smartgarden.model.Plant
 import com.squareup.picasso.Picasso
 
-class PlantAdapter(private val plantsList: MutableList<Plant>, private val viewModel: ViewModel): RecyclerView.Adapter<PlantAdapter.ViewHolder>() {
+class PlantAdapter(private var plantsList: MutableList<Plant>, private val viewModel: ViewModel): RecyclerView.Adapter<PlantAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: PlantItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = PlantItemBinding.inflate(LayoutInflater.from(parent.context), parent,  false)
-        if (viewModel is PlantViewModel){
+        if (viewModel is PlantViewModel || viewModel is GardenViewModel){
             binding.removePlant.visibility = View.INVISIBLE
         }
 
@@ -42,6 +42,7 @@ class PlantAdapter(private val plantsList: MutableList<Plant>, private val viewM
         }
         holder.binding.removePlant.setOnClickListener {
             removeItem(position)
+//            viewModel.removeItem()
         }
     }
 
@@ -53,13 +54,17 @@ class PlantAdapter(private val plantsList: MutableList<Plant>, private val viewM
         var isInList = false
         for (i in plantsList) {
             if (i.name == plant.name) {
+                print(i.name + " " + plant.name)
+                println(i.name.equals(plant.name))
                 isInList = true
                 break
             }
         }
+        println(isInList)
         if (!isInList) {
             plantsList.add(plant)
-            notifyItemInserted(plantsList.size)
+//            notifyItemInserted(plantsList.size - 1)
+            notifyDataSetChanged()
         }
     }
 
@@ -67,5 +72,10 @@ class PlantAdapter(private val plantsList: MutableList<Plant>, private val viewM
         plantsList.removeAt(position)
         notifyItemRemoved(position)
         notifyItemRangeChanged(position, plantsList.size)
+    }
+
+    fun setList(newPlantsList: MutableList<Plant>) {
+        plantsList = newPlantsList
+        notifyDataSetChanged()
     }
 }
