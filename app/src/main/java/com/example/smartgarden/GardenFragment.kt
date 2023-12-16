@@ -59,7 +59,14 @@ class GardenFragment : Fragment(),SensorEventListener{
         sensorManager.unregisterListener(this)
     }
     override fun onSensorChanged(event: SensorEvent?) {
-        binding.currentLight.text = event!!.values[0].toString()
+        when(event!!.values[0].toLong()){
+            in 0..99 -> binding.currentLight.text = "Слишком темно"
+            in 100..499 -> binding.currentLight.text = "Слабый свет"
+            in 500..1999 -> binding.currentLight.text = "Средний свет"
+            in 2000..4999 -> binding.currentLight.text = "Сильный свет"
+            in 5000..10000 -> binding.currentLight.text = "Прямой свет"
+        }
+
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
