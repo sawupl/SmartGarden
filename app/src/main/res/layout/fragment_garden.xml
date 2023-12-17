@@ -24,10 +24,11 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:fontFamily="@font/ubuntu_mono_bold"
             android:gravity="center"
             android:text=""
             android:textColor="@color/oran"
-            android:textSize="32sp" />
+            android:textSize="34sp" />
     </RelativeLayout>
 
 
@@ -59,7 +60,9 @@
         android:id="@+id/currentLight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu_mono"
         android:text="Light"
+        android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/water1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lightPic" />
@@ -68,16 +71,20 @@
         android:id="@+id/currentHumidity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu_mono"
         android:text="humidity"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/water1" />
 
     <TextView
         android:id="@+id/currentTempreture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu_mono"
         android:text="temperature"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/water1"
         app:layout_constraintTop_toBottomOf="@id/temperature" />

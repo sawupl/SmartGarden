@@ -28,6 +28,7 @@ tools:context=".MainActivity">
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:fontFamily="@font/ubuntu_mono_bold"
             android:gravity="center"
             android:text="@string/app_name"
             android:textColor="@color/oran"

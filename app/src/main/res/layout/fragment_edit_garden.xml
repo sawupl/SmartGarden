@@ -33,6 +33,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:fontFamily="@font/ubuntu_mono_bold"
             android:gravity="center"
             android:text="Изменение грядки"
             android:textColor="@color/oran"
@@ -56,19 +57,24 @@
         android:id="@+id/gardenName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu_mono"
         android:hint="Имя грядки:"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/panel" />
+
     <EditText
         android:id="@+id/city"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="Введите город"
-        android:textColorHint="@color/oranp"
         android:layout_marginTop="10dp"
+        android:ems="10"
+        android:fontFamily="@font/ubuntu_mono"
+        android:hint="Введите город:"
+        android:inputType="text"
+        android:textColorHint="@color/oranp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gardenName" />
@@ -87,14 +93,15 @@
         android:id="@+id/plant"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:hint="Название растения:"
-        android:textColorHint="@color/oranp"
         android:layout_marginStart="15dp"
         android:layout_marginBottom="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/plants_list"
+        android:fontFamily="@font/ubuntu_mono"
+        android:hint="Название растения:"
+        android:textColorHint="@color/oranp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plants_list" />
 
     <ImageView
         android:id="@+id/addPlant"

@@ -32,7 +32,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
+            android:fontFamily="@font/ubuntu_mono"
             android:text="name:"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/plantImage"
             app:layout_constraintTop_toTopOf="@id/plantImage" />
 
@@ -42,7 +44,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/ubuntu_mono"
             android:text="Грунт: "
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/plantImage"
             app:layout_constraintTop_toBottomOf="@id/wateringN" />
 
@@ -50,7 +54,9 @@
             android:id="@+id/plantSoilType"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_mono"
             android:text="soilType"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/plantS"
             app:layout_constraintTop_toTopOf="@id/plantS" />
 
@@ -60,7 +66,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
-            android:text="Поливов в день: "
+            android:fontFamily="@font/ubuntu_mono"
+            android:text="Поливовы: "
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/plantImage"
             app:layout_constraintTop_toBottomOf="@id/plantName" />
 
@@ -68,7 +76,9 @@
             android:id="@+id/wateringNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_mono"
             android:text="частота полива"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/wateringN"
             app:layout_constraintTop_toTopOf="@id/wateringN" />
 
