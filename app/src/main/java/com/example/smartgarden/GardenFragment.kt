@@ -85,7 +85,7 @@ class GardenFragment : Fragment(),SensorEventListener{
                 in 100..499 -> binding.currentLight.text = "Слабый свет"
                 in 500..1999 -> binding.currentLight.text = "Средний свет"
                 in 2000..4999 -> binding.currentLight.text = "Сильный свет"
-                in 5000..10000 -> binding.currentLight.text = "Прямой свет"
+                in 5000..40000 -> binding.currentLight.text = "Прямой свет"
             }
         }
         if (event.sensor.name.contains("Humidity",ignoreCase = true)){
