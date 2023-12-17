@@ -49,7 +49,7 @@ class NotificationService : BroadcastReceiver() {
         return NotificationCompat.Builder(context, CHANNEL_ID)
             .setContentTitle("Поливка растений")
             .setContentText("Пришло время полить растения!")
-            .setSmallIcon(R.mipmap.ic_launcher)
+            .setSmallIcon(R.drawable.water)
             .setColor(ContextCompat.getColor(context, R.color.blue))
             .setContentIntent(pendingIntent)
             .setPriority(NotificationCompat.PRIORITY_HIGH)

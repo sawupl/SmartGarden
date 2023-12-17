@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.plantInfoFragment -> {
                     binding.panel.visibility = View.VISIBLE
-                    binding.title.text = "Информация о растении"
+                    binding.title.text = "О растении"
                     binding.back.visibility = View.VISIBLE
                     binding.back.setOnClickListener{
                         navController.popBackStack()
