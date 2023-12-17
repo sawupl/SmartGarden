@@ -24,7 +24,6 @@ class PlantViewModel(private val db: FirebaseFirestore, private val auth: Fireba
         viewModelScope.launch(Dispatchers.IO) {
             val plants = db.collection("plant").get().await()
             plants.documents.forEach {
-                println(it.data?.get("name").toString())
                 val name = it.data?.get("name").toString()
                 val id = it.id
                 val soilType = it.data?.get("soilType").toString()

@@ -1,15 +1,12 @@
 package com.example.smartgarden
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import com.example.smartgarden.databinding.FragmentMainBinding
 import com.example.smartgarden.databinding.FragmentPlantInfoBinding
-import com.example.smartgarden.model.PlantInfo
 import com.squareup.picasso.Picasso
 
 
@@ -30,7 +27,6 @@ class PlantInfoFragment : Fragment() {
         plantId = arguments?.getString("plantId")
 
         viewModel = ViewModelProvider(this, ViewModelFactory())[PlantInfoViewModel::class.java]
-        println(plantId)
         viewModel.getPlantInfo(plantId.toString())
 
         viewModel.plantInfoLiveData.observe(viewLifecycleOwner){

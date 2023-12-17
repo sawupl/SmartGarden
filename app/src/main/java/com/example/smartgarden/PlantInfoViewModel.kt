@@ -17,7 +17,6 @@ class PlantInfoViewModel(private val db: FirebaseFirestore, private val auth: Fi
     fun getPlantInfo(id: String){
         viewModelScope.launch(Dispatchers.IO) {
             val plant = db.collection("plant").document(id).get().await()
-            println(id)
             val name = plant.data?.get("name").toString()
             val watering = plant.data?.get("watering").toString().toLong()
             val soilType = plant.data?.get("soilType").toString()

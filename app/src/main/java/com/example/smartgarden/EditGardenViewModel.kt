@@ -89,8 +89,6 @@ class EditGardenViewModel(private val db: FirebaseFirestore, private val auth: F
             if (plant != null) {
                 for (i in plantListLivaData.value!!) {
                     if (i.name == plant.name) {
-                        print(i.name + " " + plant.name)
-                        println(i.name.equals(plant.name))
                         isInList = true
                         break
                     }
@@ -99,8 +97,6 @@ class EditGardenViewModel(private val db: FirebaseFirestore, private val auth: F
                     plantListLivaData.value?.add(plant)
                 }
             }
-            println(isInList)
-
             return plant
         }
 

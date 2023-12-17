@@ -1,6 +1,5 @@
 package com.example.smartgarden
 
-import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -42,30 +41,11 @@ class PlantAdapter(private var plantsList: MutableList<Plant>, private val viewM
         }
         holder.binding.removePlant.setOnClickListener {
             removeItem(position)
-//            viewModel.removeItem()
         }
     }
 
     override fun getItemCount(): Int {
         return plantsList.size
-    }
-
-    fun add(plant: Plant) {
-        var isInList = false
-        for (i in plantsList) {
-            if (i.name == plant.name) {
-                print(i.name + " " + plant.name)
-                println(i.name.equals(plant.name))
-                isInList = true
-                break
-            }
-        }
-        println(isInList)
-        if (!isInList) {
-            plantsList.add(plant)
-//            notifyItemInserted(plantsList.size - 1)
-            notifyDataSetChanged()
-        }
     }
 
     private fun removeItem(position: Int) {

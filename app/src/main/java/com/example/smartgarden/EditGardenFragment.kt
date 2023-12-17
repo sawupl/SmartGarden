@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -72,10 +73,6 @@ class EditGardenFragment : Fragment() {
             val name = binding.plant.text.toString()
             if (name.isNotEmpty()) {
                 viewModel.addPlant(name)
-//                if (plant != null) {
-//                    adapter.add(plant)
-//                    plantsList.add(plant)
-//                }
                 binding.plant.setText("")
             }
         }
@@ -92,7 +89,7 @@ class EditGardenFragment : Fragment() {
                 findNavController().popBackStack()
             }
             else {
-                println("emptuyyyy")
+                Toast.makeText(requireContext(), "Заполните все поля!", Toast.LENGTH_SHORT).show()
             }
         }
 
