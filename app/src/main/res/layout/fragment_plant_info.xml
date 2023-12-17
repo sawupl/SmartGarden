@@ -39,30 +39,32 @@
                 android:fontFamily="@font/ubuntu_mono_bold"
                 android:text="name"
                 android:textSize="20sp"
+                android:textColor="@color/oran"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/plantInfoImage" />
 
             <TextView
                 android:id="@+id/plantInfoSoilType"
-                android:layout_width="250dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ubuntu_mono"
                 android:text="soilType"
                 android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@+id/textView4"
-                app:layout_constraintTop_toTopOf="@id/textView4" />
+                android:layout_marginStart="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView4" />
 
             <TextView
                 android:id="@+id/plantInfoWatering"
-                android:layout_width="200dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="15dp"
                 android:fontFamily="@font/ubuntu_mono"
                 android:text="TextView"
                 android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@+id/textView5"
-                app:layout_constraintTop_toBottomOf="@+id/plantInfoSoilType" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView5" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -72,6 +74,7 @@
                 android:fontFamily="@font/ubuntu_mono"
                 android:text="Подходящий грунт: "
                 android:textSize="16sp"
+                android:textColor="@color/oran"
                 app:layout_constraintStart_toStartOf="@+id/plantInfoImage"
                 app:layout_constraintTop_toBottomOf="@+id/plantInfoImage" />
 
@@ -83,6 +86,7 @@
                 android:fontFamily="@font/ubuntu_mono"
                 android:text="Частота полива в день: "
                 android:textSize="16sp"
+                android:textColor="@color/oran"
                 app:layout_constraintStart_toStartOf="@id/textView4"
                 app:layout_constraintTop_toBottomOf="@+id/plantInfoSoilType" />
 
@@ -94,19 +98,20 @@
                 android:fontFamily="@font/ubuntu_mono"
                 android:text="Нахождение под солнцем: "
                 android:textSize="16sp"
+                android:textColor="@color/oran"
                 app:layout_constraintStart_toStartOf="@id/textView4"
                 app:layout_constraintTop_toBottomOf="@id/plantInfoWatering" />
 
             <TextView
                 android:id="@+id/plantInfoSunExposure"
-                android:layout_width="200dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="15dp"
                 android:fontFamily="@font/ubuntu_mono"
                 android:text="TextView"
                 android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@+id/textView6"
-                app:layout_constraintTop_toBottomOf="@+id/plantInfoWatering" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView6" />
 
             <TextView
                 android:id="@+id/textView8"
@@ -116,19 +121,20 @@
                 android:fontFamily="@font/ubuntu_mono"
                 android:text="Размер растения: "
                 android:textSize="16sp"
+                android:textColor="@color/oran"
                 app:layout_constraintStart_toStartOf="@id/textView4"
                 app:layout_constraintTop_toBottomOf="@id/plantInfoSunExposure" />
 
             <TextView
                 android:id="@+id/plantInfoSize"
-                android:layout_width="250dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="15dp"
                 android:fontFamily="@font/ubuntu_mono"
                 android:text="TextView"
                 android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@+id/textView8"
-                app:layout_constraintTop_toBottomOf="@+id/plantInfoSunExposure" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView8" />
 
             <TextView
                 android:id="@+id/textView10"
@@ -138,19 +144,20 @@
                 android:fontFamily="@font/ubuntu_mono"
                 android:text="Цветение: "
                 android:textSize="16sp"
+                android:textColor="@color/oran"
                 app:layout_constraintStart_toStartOf="@id/textView4"
                 app:layout_constraintTop_toBottomOf="@id/plantInfoSize" />
 
             <TextView
                 android:id="@+id/plantBloom"
-                android:layout_width="300dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="15dp"
                 android:fontFamily="@font/ubuntu_mono"
                 android:text="TextView"
                 android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@+id/textView10"
-                app:layout_constraintTop_toBottomOf="@+id/plantInfoSize" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView10" />
 
             <TextView
                 android:id="@+id/textView12"
@@ -160,19 +167,20 @@
                 android:fontFamily="@font/ubuntu_mono"
                 android:text="Кислотность почвы: "
                 android:textSize="16sp"
+                android:textColor="@color/oran"
                 app:layout_constraintStart_toStartOf="@id/textView4"
                 app:layout_constraintTop_toBottomOf="@id/plantBloom" />
 
             <TextView
                 android:id="@+id/plantInfoSoilPh"
-                android:layout_width="250dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="15dp"
                 android:fontFamily="@font/ubuntu_mono"
                 android:text="TextView"
                 android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@+id/textView12"
-                app:layout_constraintTop_toBottomOf="@+id/plantBloom" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView12" />
 
             <TextView
                 android:id="@+id/textView14"
@@ -182,31 +190,58 @@
                 android:fontFamily="@font/ubuntu_mono"
                 android:text="Токсичность: "
                 android:textSize="16sp"
+                android:textColor="@color/oran"
                 app:layout_constraintStart_toStartOf="@id/textView4"
                 app:layout_constraintTop_toBottomOf="@id/plantInfoSoilPh" />
 
             <TextView
                 android:id="@+id/plantInfoToxicity"
-                android:layout_width="250dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="15dp"
                 android:fontFamily="@font/ubuntu_mono"
                 android:text="TextView"
                 android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@+id/textView14"
-                app:layout_constraintTop_toBottomOf="@+id/plantInfoSoilPh" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView14" />
+
+            <TextView
+                android:id="@+id/plantInfoInfoZag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/ubuntu_mono"
+                android:text="Общая информация:"
+                android:textColor="@color/oran"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/plantInfoToxicity" />
 
             <TextView
                 android:id="@+id/plantInfoInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="5dp"
                 android:fontFamily="@font/ubuntu_mono"
                 android:text="TextView"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/plantInfoToxicity" />
+                app:layout_constraintTop_toBottomOf="@id/plantInfoInfoZag" />
+
+            <TextView
+                android:id="@+id/plantInfoFertilizerZag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/ubuntu_mono"
+                android:text="Удобрения:"
+                android:textColor="@color/oran"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/plantInfoInfo" />
 
             <TextView
                 android:id="@+id/plantInfoFertilizer"
@@ -218,7 +253,20 @@
                 android:text="TextView"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/plantInfoInfo" />
+                app:layout_constraintTop_toBottomOf="@+id/plantInfoFertilizerZag" />
+
+            <TextView
+                android:id="@+id/plantInfoSoilInfoZag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/ubuntu_mono"
+                android:text="Почва:"
+                android:textColor="@color/oran"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/plantInfoFertilizer" />
 
             <TextView
                 android:id="@+id/plantInfoSoilInfo"
@@ -230,7 +278,20 @@
                 android:text="TextView"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/plantInfoFertilizer" />
+                app:layout_constraintTop_toBottomOf="@+id/plantInfoSoilInfoZag" />
+
+            <TextView
+                android:id="@+id/plantInfoSunExposureInfoZag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/ubuntu_mono"
+                android:text="Влияние солнца:"
+                android:textColor="@color/oran"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/plantInfoSoilInfo" />
 
             <TextView
                 android:id="@+id/plantInfoSunExposureInfo"
@@ -242,7 +303,20 @@
                 android:text="TextView"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/plantInfoSoilInfo" />
+                app:layout_constraintTop_toBottomOf="@+id/plantInfoSunExposureInfoZag" />
+
+            <TextView
+                android:id="@+id/plantInfoHumidityZag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/ubuntu_mono"
+                android:text="Влажность:"
+                android:textColor="@color/oran"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/plantInfoSunExposureInfo" />
 
             <TextView
                 android:id="@+id/plantInfoHumidity"
@@ -254,17 +328,33 @@
                 android:text="TextView"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/plantInfoSunExposureInfo" />
+                app:layout_constraintTop_toBottomOf="@+id/plantInfoHumidityZag" />
+
+            <TextView
+                android:id="@+id/plantInfoWaterInfoZag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/ubuntu_mono"
+                android:text="Вода:"
+                android:textColor="@color/oran"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/plantInfoHumidity" />
 
             <TextView
                 android:id="@+id/plantInfoWaterInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
                 android:fontFamily="@font/ubuntu_mono"
+                android:text="TextView"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/plantInfoHumidity" />
+                app:layout_constraintTop_toBottomOf="@id/plantInfoWaterInfoZag"
+                app:layout_constraintBottom_toBottomOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
