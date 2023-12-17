@@ -12,14 +12,43 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import com.example.smartgarden.databinding.ActivityMainBinding
 import com.example.smartgarden.notification.NotificationService
 import java.util.Calendar
 
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+
+        val navHostFragment = supportFragmentManager.findFragmentById(
+            R.id.nav_host_container
+        ) as NavHostFragment
+        navController = navHostFragment.navController
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.loginFragment -> {
+                    binding.title.text = "Вход"
+                }
+                R.id.registrationFragment -> {
+                    binding.title.text = "Регистрация"
+                }
+                R.id.mainFragment -> {
+                    binding.title.text = "Список грядок"
+                }
+            }
+        }
+
+
+
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             requestPermission(this@MainActivity, Manifest.permission.POST_NOTIFICATIONS,
                 POST_NOTIFICATIONS_PERMISSION_CODE)
