@@ -67,7 +67,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/ubuntu_mono"
-            android:text="Поливовы: "
+            android:text="Поливов в день: "
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/plantImage"
             app:layout_constraintTop_toBottomOf="@id/plantName" />
