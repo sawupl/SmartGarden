@@ -51,10 +51,6 @@ class PlantInfoFragment : Fragment() {
             binding.plantInfoSoilInfo.text = it.soilInfo
         }
 
-        binding.backToPlants.setOnClickListener {
-            findNavController().popBackStack()
-        }
-
         return binding.root
     }
 

@@ -9,10 +9,12 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.smartgarden.databinding.ActivityMainBinding
 import com.example.smartgarden.notification.NotificationService
@@ -35,13 +37,41 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.loginFragment -> {
+                    binding.panel.visibility = View.VISIBLE
+                    binding.back.visibility = View.GONE
                     binding.title.text = "Вход"
                 }
                 R.id.registrationFragment -> {
+                    binding.panel.visibility = View.VISIBLE
+                    binding.back.visibility = View.GONE
                     binding.title.text = "Регистрация"
                 }
                 R.id.mainFragment -> {
+                    binding.panel.visibility = View.VISIBLE
+                    binding.back.visibility = View.GONE
                     binding.title.text = "Список грядок"
+                }
+                R.id.editGardenFragment -> {
+                    binding.panel.visibility = View.GONE
+                }
+                R.id.plantFragment -> {
+                    binding.panel.visibility = View.VISIBLE
+                    binding.title.text = "Список растений"
+                    binding.back.visibility = View.VISIBLE
+                    binding.back.setOnClickListener{
+                        navController.popBackStack()
+                    }
+                }
+                R.id.gardenFragment -> {
+                    binding.panel.visibility = View.GONE
+                }
+                R.id.plantInfoFragment -> {
+                    binding.panel.visibility = View.VISIBLE
+                    binding.title.text = "Информация о растении"
+                    binding.back.visibility = View.VISIBLE
+                    binding.back.setOnClickListener{
+                        navController.popBackStack()
+                    }
                 }
             }
         }

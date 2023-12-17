@@ -6,19 +6,33 @@
     android:background="@color/persiclight"
     tools:context=".GardenFragment">
 
+    <RelativeLayout
+        android:id="@+id/panel"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/persic"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
 
-    <!--    <de.hdodenhof.circleimageview.CircleImageView-->
-    <!--        android:id="@+id/picture"-->
-    <!--        android:layout_width="100dp"-->
-    <!--        android:layout_height="100dp"-->
-    <!--        android:layout_marginStart="15dp"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/backToMain"-->
-    <!--        android:layout_marginTop="15dp"-->
-    <!--        tools:src="@tools:sample/avatars" />-->
+        <TextView
+            android:id="@+id/gardenName"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/oran"
+            android:textSize="32sp" />
+    </RelativeLayout>
+
 
     <ImageView
-        android:id="@+id/backToM"
+        android:id="@+id/back"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="15dp"
@@ -42,24 +56,12 @@
         app:layout_constraintTop_toBottomOf="@+id/currentHumidity" />
 
     <TextView
-        android:id="@+id/gardenName"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:layout_marginTop="10dp"
-        android:textAlignment="center"
-        android:textColor="@color/oran"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/currentLight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Light"
         app:layout_constraintEnd_toStartOf="@+id/water1"
-        app:layout_constraintStart_toEndOf="@id/backToM"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lightPic" />
 
     <TextView
@@ -67,7 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="humidity"
-        app:layout_constraintStart_toEndOf="@id/backToM"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/water1" />
 
@@ -87,9 +89,9 @@
         android:src="@drawable/water"
         android:layout_marginTop="15dp"
         android:layout_marginStart="1dp"
-        app:layout_constraintStart_toEndOf="@id/backToM"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/gardenName"/>
+        app:layout_constraintTop_toBottomOf="@id/panel"/>
 
     <ImageView
         android:id="@+id/water2"
@@ -106,9 +108,9 @@
         android:layout_height="wrap_content"
         android:src="@drawable/light"
         android:layout_marginTop="15dp"
-        app:layout_constraintStart_toEndOf="@id/backToM"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/water1"
-        app:layout_constraintTop_toBottomOf="@id/gardenName"/>
+        app:layout_constraintTop_toBottomOf="@id/panel"/>
 
     <ImageView
         android:id="@+id/temperature"
@@ -118,6 +120,6 @@
         android:layout_marginTop="15dp"
         app:layout_constraintStart_toEndOf="@id/water1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/gardenName"/>
+        app:layout_constraintTop_toBottomOf="@id/panel"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

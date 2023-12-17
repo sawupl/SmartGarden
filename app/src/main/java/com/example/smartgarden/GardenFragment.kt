@@ -57,7 +57,7 @@ class GardenFragment : Fragment(),SensorEventListener{
             binding.gardenName.text = it.toString()
         }
 
-        binding.backToM.setOnClickListener {
+        binding.back.setOnClickListener {
             findNavController().popBackStack()
         }
 

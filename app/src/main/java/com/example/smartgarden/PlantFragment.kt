@@ -30,10 +30,6 @@ class PlantFragment : Fragment() {
             binding.plantsRecyclerView.layoutManager = LinearLayoutManager(context)
         }
 
-        binding.backToMain.setOnClickListener {
-            findNavController().popBackStack()
-        }
-
         return binding.root
     }
 }

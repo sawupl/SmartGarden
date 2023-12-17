@@ -20,17 +20,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/backToPlants"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
-                android:backgroundTint="@color/oran"
-                android:src="@drawable/back"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
 
             <ImageView
                 android:id="@+id/plantInfoImage"
@@ -39,7 +28,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/backToPlants"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:src="@tools:sample/avatars" />
 
             <TextView

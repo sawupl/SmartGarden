@@ -77,7 +77,7 @@ class EditGardenFragment : Fragment() {
             }
         }
 
-        binding.backToMenu.setOnClickListener {
+        binding.back.setOnClickListener {
             findNavController().popBackStack()
         }
 
