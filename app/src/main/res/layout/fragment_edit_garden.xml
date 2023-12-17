@@ -22,11 +22,10 @@
         android:id="@+id/gardenName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        android:hint="Имя градки:"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/backToMenu"
-        android:hint="name of garden"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/backToMenu" />
     <EditText
         android:id="@+id/city"
         android:layout_width="match_parent"

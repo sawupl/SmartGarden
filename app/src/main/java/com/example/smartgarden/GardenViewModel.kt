@@ -15,10 +15,19 @@ import java.util.UUID
 class GardenViewModel(private val db: FirebaseFirestore, private val auth: FirebaseAuth): ViewModel() {
     val id = auth.currentUser?.uid.toString()
     val plantListLivaData = MutableLiveData<MutableList<Plant>>()
+    val nameLivaData = MutableLiveData<String>()
 
     fun getGarden(gardenId: String){
         viewModelScope.launch(Dispatchers.IO) {
-        // get id list of gardens plants
+            val garden = db.collection("users")
+                .document(id)
+                .collection("garden")
+                .document(gardenId)
+            val name = garden.get().await().data?.get("name").toString()
+            nameLivaData.postValue(name)
+
+
+            // get id list of gardens plants
             val plantIdList = mutableListOf<String>()
             val plantsInGardenId = db.collection("users")
                 .document(id)

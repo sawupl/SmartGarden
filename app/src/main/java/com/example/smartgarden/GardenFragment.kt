@@ -53,6 +53,10 @@ class GardenFragment : Fragment(),SensorEventListener{
         }
 
 
+        viewModel.nameLivaData.observe(viewLifecycleOwner){
+            binding.gardenName.text = it.toString()
+        }
+
         binding.backToM.setOnClickListener {
             findNavController().popBackStack()
         }
