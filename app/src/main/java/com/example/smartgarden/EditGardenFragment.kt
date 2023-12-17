@@ -40,6 +40,9 @@ class EditGardenFragment : Fragment() {
         if (gardenId != null) {
             viewModel.getGarden(gardenId.toString())
         }
+        else {
+            binding.title.text = "Создание грядки"
+        }
 
         viewModel.plantsStringLiveData.observe(viewLifecycleOwner){
             val adapter = ArrayAdapter(
