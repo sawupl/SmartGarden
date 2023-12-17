@@ -1,4 +1,4 @@
-package com.example.smartgarden
+package com.example.smartgarden.plant
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModel
 import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.smartgarden.R
 import com.example.smartgarden.databinding.PlantItemBinding
+import com.example.smartgarden.garden.GardenViewModel
 import com.example.smartgarden.model.Plant
 import com.squareup.picasso.Picasso
 
@@ -37,7 +39,7 @@ class PlantAdapter(private var plantsList: MutableList<Plant>, private val viewM
         holder.itemView.setOnClickListener {
             val bundle = Bundle()
             bundle.putString("plantId", plantsList[position].id)
-            findNavController(it).navigate(R.id.plantInfoFragment , bundle)
+            findNavController(it).navigate(R.id.plantInfoFragment, bundle)
         }
         holder.binding.removePlant.setOnClickListener {
             removeItem(position)

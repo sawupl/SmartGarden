@@ -1,4 +1,4 @@
-package com.example.smartgarden
+package com.example.smartgarden.plant
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

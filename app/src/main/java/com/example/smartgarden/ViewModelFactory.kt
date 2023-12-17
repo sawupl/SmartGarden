@@ -2,7 +2,12 @@ package com.example.smartgarden
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.smartgarden.edit.EditGardenViewModel
+import com.example.smartgarden.garden.GardenViewModel
 import com.example.smartgarden.login.LoginViewModel
+import com.example.smartgarden.main.MainViewModel
+import com.example.smartgarden.plant.PlantViewModel
+import com.example.smartgarden.plantInfo.PlantInfoViewModel
 import com.example.smartgarden.registration.RegistrationViewModel
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore

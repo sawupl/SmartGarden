@@ -1,10 +1,12 @@
-package com.example.smartgarden
+package com.example.smartgarden.garden
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.smartgarden.main.MainViewModel
+import com.example.smartgarden.R
 import com.example.smartgarden.databinding.GardenItemBinding
 import com.example.smartgarden.model.Garden
 

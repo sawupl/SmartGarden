@@ -1,16 +1,14 @@
-package com.example.smartgarden
+package com.example.smartgarden.garden
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.smartgarden.model.Plant
-import com.example.smartgarden.model.PlantInfo
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
-import java.util.UUID
 
 class GardenViewModel(private val db: FirebaseFirestore, private val auth: FirebaseAuth): ViewModel() {
     val id = auth.currentUser?.uid.toString()

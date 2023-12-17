@@ -1,4 +1,4 @@
-package com.example.smartgarden
+package com.example.smartgarden.garden
 
 import android.content.Context
 import android.hardware.Sensor
@@ -9,11 +9,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.smartgarden.plant.PlantAdapter
+import com.example.smartgarden.ViewModelFactory
 import com.example.smartgarden.databinding.FragmentGardenBinding
 
 class GardenFragment : Fragment(),SensorEventListener{

@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.smartgarden.MainFragment"
+        android:name="com.example.smartgarden.main.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -45,7 +45,7 @@
     </fragment>
     <fragment
         android:id="@+id/gardenFragment"
-        android:name="com.example.smartgarden.GardenFragment"
+        android:name="com.example.smartgarden.garden.GardenFragment"
         android:label="fragment_garden"
         tools:layout="@layout/fragment_garden" >
         <argument
@@ -57,7 +57,7 @@
     </fragment>
     <fragment
         android:id="@+id/editGardenFragment"
-        android:name="com.example.smartgarden.EditGardenFragment"
+        android:name="com.example.smartgarden.edit.EditGardenFragment"
         android:label="fragment_edit_garden"
         tools:layout="@layout/fragment_edit_garden" >
         <action
@@ -66,7 +66,7 @@
     </fragment>
     <fragment
         android:id="@+id/plantFragment"
-        android:name="com.example.smartgarden.PlantFragment"
+        android:name="com.example.smartgarden.plant.PlantFragment"
         android:label="fragment_plant"
         tools:layout="@layout/fragment_plant" >
         <action
@@ -75,7 +75,7 @@
     </fragment>
     <fragment
         android:id="@+id/plantInfoFragment"
-        android:name="com.example.smartgarden.PlantInfoFragment"
+        android:name="com.example.smartgarden.plantInfo.PlantInfoFragment"
         android:label="fragment_plant_info"
         tools:layout="@layout/fragment_plant_info" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.smartgarden
+package com.example.smartgarden.plantInfo
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.smartgarden.ViewModelFactory
 import com.example.smartgarden.databinding.FragmentPlantInfoBinding
 import com.squareup.picasso.Picasso
 
@@ -16,7 +17,7 @@ class PlantInfoFragment : Fragment() {
     private var plantId: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        viewModel = ViewModelProvider(this, ViewModelFactory())[PlantInfoViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -26,7 +27,6 @@ class PlantInfoFragment : Fragment() {
         binding = FragmentPlantInfoBinding.inflate(layoutInflater, container, false)
         plantId = arguments?.getString("plantId")
 
-        viewModel = ViewModelProvider(this, ViewModelFactory())[PlantInfoViewModel::class.java]
         viewModel.getPlantInfo(plantId.toString())
 
         viewModel.plantInfoLiveData.observe(viewLifecycleOwner){

@@ -1,4 +1,4 @@
-package com.example.smartgarden
+package com.example.smartgarden.plant
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.smartgarden.ViewModelFactory
 import com.example.smartgarden.databinding.FragmentPlantBinding
 
 class PlantFragment : Fragment() {
