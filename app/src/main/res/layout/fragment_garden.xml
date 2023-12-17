@@ -19,8 +19,8 @@
 
     <ImageView
         android:id="@+id/backToM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
         android:backgroundTint="@color/oran"
@@ -35,14 +35,18 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/currentHumidity" />
 
     <TextView
         android:id="@+id/gardenName"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:layout_marginTop="10dp"
         android:textAlignment="center"
         android:textColor="@color/oran"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,51 +58,66 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Light"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/gardenName" />
+        app:layout_constraintEnd_toStartOf="@+id/water1"
+        app:layout_constraintStart_toEndOf="@id/backToM"
+        app:layout_constraintTop_toBottomOf="@id/lightPic" />
 
     <TextView
         android:id="@+id/currentHumidity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="humidity"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+        app:layout_constraintStart_toEndOf="@id/backToM"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/water1" />
 
     <TextView
         android:id="@+id/currentTempreture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="temperature"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/currentHumidity" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/water1"
+        app:layout_constraintTop_toBottomOf="@id/temperature" />
 
-    <TextView
-        android:id="@+id/textView"
+    <ImageView
+        android:id="@+id/water1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Свет:"
+        android:src="@drawable/water"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="1dp"
+        app:layout_constraintStart_toEndOf="@id/backToM"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gardenName" />
+        app:layout_constraintTop_toBottomOf="@id/gardenName"/>
 
-    <TextView
-        android:id="@+id/textView2"
+    <ImageView
+        android:id="@+id/water2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Влажность:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:src="@drawable/water"
+        app:layout_constraintEnd_toEndOf="@id/water1"
+        app:layout_constraintTop_toTopOf="@id/water1"
+        android:scaleX="-1"/>
 
-    <TextView
-        android:id="@+id/textView3"
+    <ImageView
+        android:id="@+id/lightPic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Температура:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        android:src="@drawable/light"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toEndOf="@id/backToM"
+        app:layout_constraintEnd_toStartOf="@id/water1"
+        app:layout_constraintTop_toBottomOf="@id/gardenName"/>
 
+    <ImageView
+        android:id="@+id/temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/temperature"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toEndOf="@id/water1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gardenName"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

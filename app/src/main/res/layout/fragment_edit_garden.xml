@@ -4,12 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".EditGardenFragment">
+    tools:context=".EditGardenFragment"
+    android:background="@color/persiclight">
 
     <ImageView
         android:id="@+id/backToMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
         android:backgroundTint="@color/oran"
@@ -23,7 +24,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/backToMenu"
         android:hint="name of garden"
         />
     <EditText
@@ -33,7 +34,6 @@
         android:ems="10"
         android:inputType="text"
         android:hint="Введите город"
-        android:textColor="@color/oran"
         android:textColorHint="@color/oranp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,6 +44,7 @@
         android:id="@+id/plants_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintTop_toBottomOf="@+id/city"
         app:layout_constraintBottom_toTopOf="@+id/plant"
         android:layout_marginBottom="50dp"
@@ -54,36 +55,36 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Название растения:"
-        android:textColor="@color/oran"
         android:textColorHint="@color/oranp"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/plants_list"
-        app:layout_constraintBottom_toTopOf="@id/addGarden"
-        />
-
-
-    <Button
-        android:id="@+id/addPlant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/plants_list"
-        app:layout_constraintStart_toEndOf="@+id/plant"
-        app:layout_constraintBottom_toTopOf="@id/addGarden"
-        android:layout_marginStart="20dp"
-        android:text="Добавить"
-        />
-
-
-    <Button
-        android:id="@+id/addGarden"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/plant"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:text="Save"
         />
+
+
+    <ImageView
+        android:id="@+id/addPlant"
+        android:src="@drawable/add"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintTop_toTopOf="@id/plant"
+        app:layout_constraintStart_toEndOf="@+id/plant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/plant" />
+
+
+    <ImageView
+        android:id="@+id/addGarden"
+        android:src="@drawable/done"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="15dp" />
 
 
 

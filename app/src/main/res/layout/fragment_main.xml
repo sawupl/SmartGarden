@@ -4,33 +4,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MainFragment">
+    tools:context=".MainFragment"
+    android:background="@color/persiclight">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/gardensRecycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/createGarden"
+        app:layout_constraintBottom_toTopOf="@id/toPlantList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/createGarden"
-        android:layout_width="match_parent"
+        android:layout_width="175dp"
         android:layout_height="wrap_content"
-        android:text="create new garden"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Новый сад"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        android:backgroundTint="@color/oran"/>
 
     <Button
         android:id="@+id/toPlantList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="В список растений"
-        app:layout_constraintBottom_toBottomOf="@+id/gardensRecycler"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/oran"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

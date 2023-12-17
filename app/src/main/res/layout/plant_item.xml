@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="150dp">
+    android:layout_height="180dp">
 
     <ImageView
         android:id="@+id/plantImage"
@@ -11,38 +11,64 @@
         android:layout_height="150dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:layout_marginTop="15dp"
+        tools:srcCompat="@tools:sample/avatars"
+        />
 
     <TextView
         android:id="@+id/plantName"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="name:"
         app:layout_constraintStart_toEndOf="@+id/plantImage"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginStart="15dp"
+        app:layout_constraintTop_toTopOf="@id/plantImage"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/plantS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Грунт: "
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@+id/plantImage"
+        android:layout_marginStart="15dp"
+        app:layout_constraintTop_toBottomOf="@id/wateringN" />
 
     <TextView
         android:id="@+id/plantSoilType"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="soilType"
+        app:layout_constraintStart_toEndOf="@+id/plantS"
+        app:layout_constraintTop_toTopOf="@id/plantS" />
+
+    <TextView
+        android:id="@+id/wateringN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Поливов в день: "
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toEndOf="@+id/plantImage"
-        app:layout_constraintTop_toBottomOf="@+id/plantName" />
+        android:layout_marginStart="15dp"
+        app:layout_constraintTop_toBottomOf="@id/plantName"
+        />
 
     <TextView
         android:id="@+id/wateringNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="частота полива"
-        app:layout_constraintStart_toEndOf="@+id/plantImage"
-        app:layout_constraintTop_toBottomOf="@+id/plantSoilType" />
+        app:layout_constraintStart_toEndOf="@id/wateringN"
+        app:layout_constraintTop_toTopOf="@id/wateringN" />
 
-    <Button
+    <ImageView
         android:id="@+id/removePlant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="remove"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/delete"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
