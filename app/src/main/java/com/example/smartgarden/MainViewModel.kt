@@ -29,4 +29,15 @@ class MainViewModel(private val db: FirebaseFirestore, private val auth: Firebas
             gardenLiveData.postValue(gardenList)
         }
     }
+
+
+    fun deleteGarden(gardenId: String){
+        viewModelScope.launch(Dispatchers.IO) {
+            db.collection("users")
+                .document(id)
+                .collection("garden")
+                .document(gardenId)
+                .delete().await()
+        }
+    }
 }

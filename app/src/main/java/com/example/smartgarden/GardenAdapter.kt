@@ -9,7 +9,7 @@ import com.example.smartgarden.databinding.GardenItemBinding
 import com.example.smartgarden.model.Garden
 
 
-class GardenAdapter(private val gardenList: List<Garden>): RecyclerView.Adapter<GardenAdapter.ViewHolder>() {
+class GardenAdapter(private val gardenList: MutableList<Garden>, private val viewModel: MainViewModel): RecyclerView.Adapter<GardenAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: GardenItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,9 +34,22 @@ class GardenAdapter(private val gardenList: List<Garden>): RecyclerView.Adapter<
             bundle.putString("gardenId", gardenList[position].id)
             findNavController(it).navigate(R.id.action_mainFragment_to_editGardenFragment, bundle)
         }
+
+
+        holder.binding.deleteGarden.setOnClickListener {
+            val gardenId = gardenList[position].id
+            removeItem(position)
+            viewModel.deleteGarden(gardenId)
+        }
     }
 
     override fun getItemCount(): Int {
         return gardenList.size
+    }
+
+    private fun removeItem(position: Int) {
+        gardenList.removeAt(position)
+        notifyItemRemoved(position)
+        notifyItemRangeChanged(position, gardenList.size)
     }
 }

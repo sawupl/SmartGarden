@@ -22,7 +22,7 @@ class MainFragment : Fragment() {
         viewModel = ViewModelProvider(this, ViewModelFactory())[MainViewModel::class.java]
 
         viewModel.gardenLiveData.observe(viewLifecycleOwner){
-            val adapter = GardenAdapter(it)
+            val adapter = GardenAdapter(it, viewModel)
             binding.gardensRecycler.adapter = adapter
             binding.gardensRecycler.layoutManager = LinearLayoutManager(context)
         }
